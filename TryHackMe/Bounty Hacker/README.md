@@ -5,6 +5,19 @@ Ip victima: 10.10.142.48
 Realizamos un scaneo rápido
 
 nmap -p- --open -sS -sC -sV --min-rate=5000 -vvv -n -Pn 10.10.142.48
+| COMANDO  | RESULTADO |
+| ------------- | ------------- |
+| -p-  | Escanea todos los puertos(65535)  |
+| --open  | Solo muestra los puertos que están abiertos  |
+| -sS  | Realiza un escaneo SYN |
+| -sC  | Ejecuta scripts por defecto de nmap  |
+| -sV  | Detecta la versión de los servicios  |
+| --min-rate=5000  | Fuerza una velocidad mínima de escaneo de 5000 paquetes por segundo  |
+| -vvv  | Muestra salida muy detallada  |
+| -n  | Desactiva la resolución de nombres DNS  |
+| -Pn  | No hace ping  |
+
+## Respuesta de NMAP
 
 | PORT  | SERVICE |
 | ------------- | ------------- |
@@ -48,6 +61,12 @@ En el archivo task.txt vemos que hay un posible usuario "lin" y en el archivo lo
 ```bash
 hydra ssh://10.10.142.48 -l lin -P locks.txt
 ```
+| COMANDO  | RESULTADO |
+| ------------- | ------------- |
+| ssh://10.10.142.48  | Especifica que el objetivo del ataque es el servicio SSH  |
+| -l lin  | Define el nombre de usuario con el que se va a probar  |
+| -P locks.txt  | Especifica el archivo de diccionario de contraseñas que Hydra va a usar  |
+
 Obtenemos el siguiente resultado:
 
 ```bash
